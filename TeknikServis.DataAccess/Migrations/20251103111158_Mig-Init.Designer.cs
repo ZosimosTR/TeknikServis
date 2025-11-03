@@ -12,7 +12,7 @@ using TeknikServis.DataAccess.Context;
 namespace TeknikServis.DataAccess.Migrations
 {
     [DbContext(typeof(ServisContext))]
-    [Migration("20251103104141_Mig-Init")]
+    [Migration("20251103111158_Mig-Init")]
     partial class MigInit
     {
         /// <inheritdoc />
@@ -92,6 +92,10 @@ namespace TeknikServis.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MusteriId"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MusteriAdi")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -101,10 +105,6 @@ namespace TeknikServis.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefon")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
